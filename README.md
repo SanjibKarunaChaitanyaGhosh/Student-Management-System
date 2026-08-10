@@ -1,109 +1,188 @@
-# Student-Management-System
+Student Management System
 
-### 1st step
+A full-stack Student Management System built using the MERN Stack.
+
+The application allows an administrator to securely log in and manage student records through a professional dashboard.
+
+🚀 Tech Stack
+Frontend
+React.js
+React Router
+Axios
+Tailwind CSS
+Backend
+Node.js
+Express.js
+JWT
+bcryptjs
+Multer
+Database
+MongoDB Atlas
+Mongoose
+📌 Features
+Authentication
+Admin login
+Email and password validation
+Password hashing using bcrypt
+JWT authentication
+Protected API routes
+Logout
+Token stored in browser localStorage
+Dashboard
+Total Students
+Active Students
+Inactive Students
+Recently Added Students
+Student Management
+Add Student
+View Students
+Delete Student
+Edit Student
+Search students
+Filter by course
+Filter by status
+Student Information
+
+Each student contains:
+
+Profile Image
+Full Name
+Email
+Phone Number
+Gender
+Date of Birth
+Course
+Address
+Status
+Image Upload
+JPG
+JPEG
+PNG
+Maximum size: 2 MB
+Uploaded images stored in the backend uploads/ directory
+
+### 📁 Project Structure
 ```bash
-mkdir student-management
-cd student-management
+student-management/
+│
+├── backend/
+│   │
+│   ├── config/
+│   │   └── db.js
+│   │
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   └── studentController.js
+│   │
+│   ├── middleware/
+│   │   ├── authMiddleware.js
+│   │   └── uploadMiddleware.js
+│   │
+│   ├── models/
+│   │   ├── Admin.js
+│   │   └── Student.js
+│   │
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   └── studentRoutes.js
+│   │
+│   ├── uploads/
+│   │
+│   ├── .env
+│   ├── createAdmin.js
+│   ├── package.json
+│   └── server.js
+│
+│
+├── frontend/
+│   │
+│   ├── src/
+│   │   │
+│   │   ├── components/
+│   │   │   ├── Navbar.jsx
+│   │   │   └── Sidebar.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── Students.jsx
+│   │   │   └── AddStudent.jsx
+│   │   │
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   │
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── package.json
+│   └── ...
+│
+└── README.md
 ```
 
+## 🛠️ Step-by-Step Development
+### Step 1 — Create Project
+
+* Create the main project folder:
+
 ```bash
-mkdir student-management
-cd student-management
+🛠️ Step-by-Step Development
+Step 1 — Create Project
+
+Create the main project folder:
 ```
 
+# Create backend:
+
+```bash
+mkdir backend
+cd backend
+```
+
+* Initialize Node.js:
 ```bash
 npm init -y
 ```
 
+* Install the main backend packages:
 ```bash
 npm install express mongoose dotenv cors
 ```
 
+* Install Nodemon:
 ```bash
 npm install --save-dev nodemon
 ```
 
-### next
-
-```bash
-Package	Purpose
-express	Backend server
-mongoose	MongoDB ↔ Node.js
-dotenv	Environment variables
-cors	Frontend ↔ backend communication
-nodemon	Automatically restart server
-```
-
-## Step 2 — Create Backend Structure
+### Step 2 — Backend Folder Structure
 
 * Inside backend:
 ```bash
 mkdir config models routes controllers middleware
-``
+```
+
+* Create the server file:
 ```bash
 touch server.js
+```
+
+* Create environment file:
+```bash
 touch .env
 ```
 
-
-## Step 3 — Create Express Server
-* backend/server.js
-
+* The structure becomes:
 ```bash
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
-
-const app = express();
-
-
-// Middleware
-app.use(cors());
-app.use(express.json());
-
-
-// Test route
-app.get("/", (req, res) => {
-    res.json({
-        message: "Student Management API is running"
-    });
-});
-
-
-// Server
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+backend/
+│
+├── config/
+├── models/
+├── routes/
+├── controllers/
+├── middleware/
+├── .env
+└── server.js
 ```
 
-## Now modify package.json.
-* find this 
-```bash
-"scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-}
-```
-* change this to 
-```bash
-"scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
-}
-```
-* start the server
-```bash
-npm run dev
-```
+### Step 3 — Create Express Server
 
-### Backend working fine in http://localhost:5000/
-
-# 🗄️ Step 4 — Now MongoDB
-* upto step 6 completed database concetion
-
-## step-7 statred 
- * created admin.js wihtin models
- * authController.js
-
- # Student-Management-System
